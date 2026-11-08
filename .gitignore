@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.egg-info/
+# test artifacts
+*.mp4
+*.webm
+# screenshots/recordings of real sessions are never committed
+docs/

@@ -1,0 +1,16 @@
+{
+  "uuid": "agentbridge@local",
+  "name": "Agent Bridge",
+  "description": "D-Bus bridge for AI agents: silent screenshots, native screen recording, and pointer/keyboard injection from inside the compositor.",
+  "url": "https://github.com/remenic/gnome-agent-bridge",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51"
+  ],
+  "version": 1
+}

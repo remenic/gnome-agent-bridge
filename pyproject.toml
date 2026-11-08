@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gnome-agent-bridge"
+version = "0.1.0"
+description = "MCP server for GNOME desktop control: silent screenshots, native screen recording, and pointer/keyboard injection through a GNOME Shell extension"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+keywords = ["mcp", "gnome", "gnome-shell", "wayland", "computer-use", "automation"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: X11 Applications :: Gnome",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Topic :: Desktop Environment :: Gnome",
+  "Topic :: Software Development :: Testing",
+]
+# PyGObject is system software on GNOME systems (python3-gobject / python-gobject),
+# not something pip should build.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/remenic/gnome-agent-bridge"
+Repository = "https://github.com/remenic/gnome-agent-bridge"
+
+[project.scripts]
+gnome-agent-bridge = "gnome_agent_mcp:main"
+
+[tool.setuptools]
+package-dir = { "" = "mcp" }
+py-modules = ["gnome_agent_mcp"]
