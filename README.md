@@ -157,7 +157,22 @@ Register the MCP server with your client (`command` must be an absolute path):
 }
 ```
 
-The server is a plain stdin/stdout MCP server, so any client works.
+The server is a plain stdin/stdout MCP server, so any client works. If you
+installed it with `pipx` above, swap the path for `gnome-agent-bridge`:
+
+| Client | Register |
+|---|---|
+| Claude Code | `claude mcp add gnome -- /path/to/mcp/gnome_agent_mcp.py` |
+| Codex CLI | `codex mcp add gnome -- /path/to/mcp/gnome_agent_mcp.py` |
+| pi | `pi mcp add gnome -- /path/to/mcp/gnome_agent_mcp.py` |
+| VS Code | `.vscode/mcp.json`: `{"servers": {"gnome": {"type": "stdio", "command": "/path/to/mcp/gnome_agent_mcp.py"}}}` |
+| Cursor | `~/.cursor/mcp.json`, using the `mcpServers` block above |
+| Claude Desktop | `claude_desktop_config.json`, using the `mcpServers` block above |
+
+One caveat for all of them: the server talks to the *session* bus, so the client
+must run inside your graphical login. A systemd user service does not inherit
+`DBUS_SESSION_BUS_ADDRESS`; the server falls back to `$XDG_RUNTIME_DIR/bus`, which
+is why that variable must be present (see *Running under a service manager*).
 
 ## Tools
 
